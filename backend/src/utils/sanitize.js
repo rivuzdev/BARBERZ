@@ -26,6 +26,7 @@ function sanitizeUser(usuario) {
         bio: safe.bio || null,
         foto: safe.foto || null,
         rol: safe.rol,
+        valorCorte: safe.valorCorte ? Number(safe.valorCorte) : null,
         createdAt: safe.createdAt,
         updatedAt: safe.updatedAt,
     };

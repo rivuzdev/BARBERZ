@@ -10,6 +10,11 @@ const updateMeBodySchema = z.object({
     telefono: telefonoSchema.optional(),
     whatsapp: telefonoSchema.optional(),
     instagram: z.string().trim().max(80, 'Instagram no puede superar 80 caracteres').optional(),
+    valorCorte: z.number()
+        .min(0, 'Valor del corte no puede ser negativo')
+        .max(99999.99, 'Valor del corte demasiado alto')
+        .optional()
+        .nullable(),
 }).strict().refine((data) => Object.keys(data).length > 0, {
     message: 'Debes enviar al menos un campo para actualizar',
 });

@@ -14,7 +14,7 @@ async function getMe(usuarioId) {
 }
 
 async function updateMe(usuarioId, data) {
-    const { nombre, telefono, instagram, whatsapp } = data;
+    const { nombre, telefono, instagram, whatsapp, valorCorte } = data;
 
     // Obtener usuario actual para comprobaciones (rol, valores actuales)
     const usuarioActual = await usuariosRepository.buscarPorId(usuarioId);
@@ -32,6 +32,16 @@ async function updateMe(usuarioId, data) {
     if (typeof telefono !== 'undefined' && String(telefono).trim() !== '') payload.telefono = String(telefono).trim();
     if (typeof instagram !== 'undefined' && String(instagram).trim() !== '') payload.instagram = String(instagram).trim();
 
+    // Solo permitir actualizar valorCorte si el usuario es admin
+    if (typeof valorCorte !== 'undefined') {
+        if (usuarioActual.rol !== 'admin') {
+            const error = new Error('No tienes permiso para actualizar el valor del corte');
+            error.status = 403;
+            throw error;
+        }
+        payload.valorCorte = valorCorte;
+    }
+
     // Si es admin, asegurarnos de que exista un instagram (ya sea el actual o el enviado)
     const resultingInstagram = payload.hasOwnProperty('instagram') ? payload.instagram : usuarioActual.instagram;
     if (usuarioActual.rol === 'admin' && (!resultingInstagram || String(resultingInstagram).trim() === '')) {
@@ -40,9 +50,16 @@ async function updateMe(usuarioId, data) {
         throw error;
     }
 
-    const usuario = await usuariosRepository.actualizarPerfil(usuarioId, payload);
-
-    return sanitizeUser(usuario);
+    try {
+        const usuario = await usuariosRepository.actualizarPerfil(usuarioId, payload);
+        return sanitizeUser(usuario);
+    } catch (err) {
+        console.error('❌ Error actualizando perfil (usuario.service.updateMe) -> payload:', payload, 'error:');
+        console.error(err && err.stack ? err.stack : err);
+        const error = new Error('Error interno al actualizar perfil');
+        error.status = 500;
+        throw error;
+    }
 }
 
 async function subirFoto(usuarioId, fotoUrl, file) {

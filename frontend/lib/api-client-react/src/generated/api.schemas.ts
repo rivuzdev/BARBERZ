@@ -60,6 +60,7 @@ export interface UpdateMeBody {
   nombre?: string;
   whatsapp?: string;
   instagram?: string;
+  valorCorte?: number;
 }
 
 export interface SubirFotoBody {

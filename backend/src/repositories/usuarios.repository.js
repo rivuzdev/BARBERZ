@@ -26,16 +26,28 @@ async function crearCliente({ nombre, email, passwordHash, whatsapp, telefono, i
     });
 }
 
-async function actualizarPerfil(id, { nombre, whatsapp, telefono, instagram }) {
-    return prisma.usuario.update({
-        where: { id: parseInt(id) },
-        data: {
-            nombre: nombre || undefined,
-            whatsapp: whatsapp !== undefined ? whatsapp : (telefono || undefined),
-            telefono: telefono || undefined,
-            instagram: instagram || undefined,
-        }
-    });
+async function actualizarPerfil(id, { nombre, whatsapp, telefono, instagram, valorCorte }) {
+    const where = { id: parseInt(id) };
+
+    // Construir data sin valorCorte para evitar errores si el cliente Prisma no reconoce la propiedad
+    const data = {
+        nombre: nombre || undefined,
+        whatsapp: whatsapp !== undefined ? whatsapp : (telefono || undefined),
+        telefono: telefono || undefined,
+        instagram: instagram || undefined,
+    };
+
+    // Actualizar campos normales
+    const usuario = await prisma.usuario.update({ where, data });
+
+    // Si vino valorCorte, actualizar la columna directamente con SQL (evita problemas con cliente Prisma desactualizado)
+    if (typeof valorCorte !== 'undefined') {
+        const idNum = parseInt(id);
+        await prisma.$executeRaw`UPDATE usuarios SET valor_corte = ${valorCorte} WHERE id = ${idNum}`;
+    }
+
+    // Devolver la versión actualizada del usuario
+    return prisma.usuario.findUnique({ where: { id: parseInt(id) } });
 }
 
 async function actualizarFoto(id, fotoUrl, photoPublicId) {

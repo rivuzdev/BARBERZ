@@ -26,7 +26,10 @@ export default function Perfil() {
   const [nombre, setNombre] = useState(user?.nombre ?? "");
   const [whatsapp, setWhatsapp] = useState(user?.whatsapp ?? "");
   const [instagram, setInstagram] = useState(user?.instagram ?? "");
-  const [errors, setErrors] = useState<{ nombre?: string; whatsapp?: string; instagram?: string }>({});
+  const [valorCorte, setValorCorte] = useState<string>(
+    user?.valorCorte ? String(user.valorCorte) : ""
+  );
+  const [errors, setErrors] = useState<{ nombre?: string; whatsapp?: string; instagram?: string; valorCorte?: string }>({});
   // Si el usuario es admin, Instagram es obligatorio en el perfil
   const isAdmin = user?.rol === 'admin';
 
@@ -109,13 +112,23 @@ export default function Perfil() {
             onSubmit={(e) => {
               e.preventDefault();
 
-              const nextErrors: { nombre?: string; whatsapp?: string; instagram?: string } = {};
+              const nextErrors: { nombre?: string; whatsapp?: string; instagram?: string; valorCorte?: string } = {};
               if (!nombre.trim()) nextErrors.nombre = "El nombre completo es obligatorio.";
               if (whatsapp.trim() && !isValidWhatsAppPhone(whatsapp)) {
                 nextErrors.whatsapp = "Ingresá un número de WhatsApp válido.";
               }
               if (isAdmin && !instagram.trim()) {
                 nextErrors.instagram = "El Instagram es obligatorio.";
+              }
+              if (isAdmin && valorCorte.trim()) {
+                const num = parseFloat(valorCorte);
+                if (isNaN(num)) {
+                  nextErrors.valorCorte = "El valor del corte debe ser un número válido.";
+                } else if (num < 0) {
+                  nextErrors.valorCorte = "El valor del corte no puede ser negativo.";
+                } else if (num > 99999.99) {
+                  nextErrors.valorCorte = "El valor del corte es demasiado alto.";
+                }
               }
 
               setErrors(nextErrors);
@@ -126,6 +139,7 @@ export default function Perfil() {
                   nombre: nombre.trim(),
                   whatsapp: whatsapp.trim() || undefined,
                   instagram: instagram.trim() || undefined,
+                  ...(isAdmin && valorCorte.trim() ? { valorCorte: parseFloat(valorCorte) } : {}),
                 },
               });
             }}
@@ -173,6 +187,27 @@ export default function Perfil() {
               />
                 {errors.instagram && <p className="text-xs text-destructive mt-1">{errors.instagram}</p>}
             </div>
+            {isAdmin && (
+              <div className="sm:col-span-2">
+                <Label htmlFor="valorCorte" className="text-xs sm:text-sm">Valor del corte</Label>
+                <Input
+                  id="valorCorte"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  max="99999.99"
+                  value={valorCorte}
+                  onChange={(e) => {
+                    setValorCorte(e.target.value);
+                    if (errors.valorCorte) setErrors((prev) => ({ ...prev, valorCorte: undefined }));
+                  }}
+                  placeholder="0.00"
+                  data-testid="input-perfil-valor-corte"
+                  className="text-sm"
+                />
+                {errors.valorCorte && <p className="text-xs text-destructive mt-1">{errors.valorCorte}</p>}
+              </div>
+            )}
             <div className="sm:col-span-2 flex justify-end">
               <Button
                 type="submit"

@@ -27,7 +27,7 @@ export default function Perfil() {
   const [whatsapp, setWhatsapp] = useState(user?.whatsapp ?? "");
   const [instagram, setInstagram] = useState(user?.instagram ?? "");
   const [valorCorte, setValorCorte] = useState<string>(
-    user?.valorCorte ? String(user.valorCorte) : ""
+    (user as any)?.valorCorte ? String((user as any).valorCorte) : ""
   );
   const [errors, setErrors] = useState<{ nombre?: string; whatsapp?: string; instagram?: string; valorCorte?: string }>({});
   // Si el usuario es admin, Instagram es obligatorio en el perfil
@@ -68,10 +68,8 @@ export default function Perfil() {
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 py-12">
       <div className="text-center mb-8">
-        <div className="text-xs uppercase tracking-[0.25em] text-primary mb-2">
-          Mi cuenta
-        </div>
-        <h1 className="font-serif text-4xl mb-3">Tu perfil</h1>
+        <div className="text-xs uppercase tracking-[0.28em] text-primary mb-2">Mi cuenta</div>
+        <h1 className="headline text-4xl text-secondary mb-3">Tu perfil</h1>
         <GoldDivider className="mx-auto" />
       </div>
 
@@ -103,7 +101,7 @@ export default function Perfil() {
               />
             </div>
             <div>
-              <div className="font-serif text-2xl">{user?.nombre}</div>
+              <div className="headline text-2xl text-secondary">{user?.nombre}</div>
               <div className="text-sm text-muted-foreground">{user?.email}</div>
             </div>
           </div>
@@ -185,7 +183,7 @@ export default function Perfil() {
                 data-testid="input-perfil-ig"
                 className="text-sm"
               />
-                {errors.instagram && <p className="text-xs text-destructive mt-1">{errors.instagram}</p>}
+              {errors.instagram && <p className="text-xs text-destructive mt-1">{errors.instagram}</p>}
             </div>
             {isAdmin && (
               <div className="sm:col-span-2">

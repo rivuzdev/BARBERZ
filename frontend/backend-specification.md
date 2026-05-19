@@ -1,6 +1,6 @@
-# Especificación Técnica del Backend: NazaBarber
+# Especificación Técnica del Backend: RivuzBarber
 
-Este documento detalla los requerimientos técnicos, rutas de API, modelos de datos y consideraciones de seguridad necesarios para desarrollar el backend que soportará el frontend de NazaBarber.
+Este documento detalla los requerimientos técnicos, rutas de API, modelos de datos y consideraciones de seguridad necesarios para desarrollar el backend que soportará el frontend de RivuzBarber.
 
 ---
 

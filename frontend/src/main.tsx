@@ -5,7 +5,7 @@ import { setAuthTokenGetter, setBaseUrl } from "@workspace/api-client-react";
 // Mock API disabled to use real backend
 
 setBaseUrl(import.meta.env.VITE_API_BASE_URL || "http://localhost:3000");
-setAuthTokenGetter(() => localStorage.getItem("nazabarber_token"));
+setAuthTokenGetter(() => localStorage.getItem("rivuzbarber_token"));
 
 document.documentElement.classList.add("dark");
 

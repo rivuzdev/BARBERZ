@@ -1,6 +1,6 @@
-# PRODUCCIÓN - NazaBarber Backend
+# PRODUCCIÓN - RivuzBarber Backend
 
-**Objetivo**: Guía completa para deployar NazaBarber Backend en producción usando **Render**, **Neon PostgreSQL**, **Cloudinary** y conectar con frontend en **Vercel**.
+**Objetivo**: Guía completa para deployar RivuzBarber Backend en producción usando **Render**, **Neon PostgreSQL**, **Cloudinary** y conectar con frontend en **Vercel**.
 
 ---
 
@@ -24,7 +24,7 @@
 1. Ir a https://neon.tech (gratuito con límites generosos)
 2. Crear cuenta
 3. Crear nuevo proyecto (base de datos PostgreSQL)
-4. Nombre sugerido: `nazabarber`
+4. Nombre sugerido: `rivuzbarber`
 5. Región: elegir más cercana a tus usuarios
 6. Obtener connection string
 
@@ -74,7 +74,7 @@ Agregar variables en Render (paso 3):
 CLOUDINARY_CLOUD_NAME=tu_cloud_name
 CLOUDINARY_API_KEY=tu_api_key
 CLOUDINARY_API_SECRET=tu_api_secret
-CLOUDINARY_FOLDER=nazabarber
+CLOUDINARY_FOLDER=rivuzbarber
 CLOUDINARY_ENABLED=true
 ```
 
@@ -93,7 +93,7 @@ CLOUDINARY_ENABLED=true
 2. Conectar repositorio GitHub (fork o private)
 3. Crear nuevo "Web Service"
 4. Seleccionar repositorio y rama (`main` o `production`)
-5. Nombre sugerido: `nazabarber-backend`
+5. Nombre sugerido: `rivuzbarber-backend`
 6. Ambiente: `Node`
 7. Build command: `cd backend && npm install && npx prisma generate --schema=prisma/schema.prisma`
 8. Start command: `cd backend && npm start`
@@ -112,14 +112,14 @@ JWT_EXPIRES_IN=15m
 REFRESH_TOKEN_SECRET=otro_secreto_largo_minimo_32_caracteres_change_me_987654321xyz
 REFRESH_TOKEN_EXPIRES_IN=7d
 FRONTEND_URL=https://tu-frontend-vercel.vercel.app
-BACKEND_URL=https://nazabarber-backend-xxxxx.onrender.com
+BACKEND_URL=https://rivuzbarber-backend-xxxxx.onrender.com
 CLOUDINARY_CLOUD_NAME=tu_cloud_name
 CLOUDINARY_API_KEY=tu_api_key
 CLOUDINARY_API_SECRET=tu_api_secret
-CLOUDINARY_FOLDER=nazabarber
+CLOUDINARY_FOLDER=rivuzbarber
 CLOUDINARY_ENABLED=true
 RESEND_API_KEY=re_abc123...
-MAIL_FROM=NazaBarber <no-reply@tudominio.com>
+MAIL_FROM=RivuzBarber <no-reply@tudominio.com>
 ```
 
 **Importante**:
@@ -137,7 +137,7 @@ El backend ahora soporta recuperación de contraseña via email con Resend.
 
 ```env
 RESEND_API_KEY=          # Déjar vacío
-MAIL_FROM=NazaBarber <onboarding@resend.dev>
+MAIL_FROM=RivuzBarber <onboarding@resend.dev>
 ```
 
 En desarrollo, los emails se loguean en consola (no se envían).
@@ -153,14 +153,14 @@ En desarrollo, los emails se loguean en consola (no se envían).
 2. **En Render Environment Variables:**
    ```
    RESEND_API_KEY=re_abc123...
-   MAIL_FROM=NazaBarber <no-reply@tudominio.com>
+   MAIL_FROM=RivuzBarber <no-reply@tudominio.com>
    ```
 
 3. **Para emails desde dominio real (recomendado):**
    - Ir a https://resend.com/domains
    - Agregar tu dominio (e.g., tudominio.com)
    - Verificar DNS records según instrucciones
-   - Cambiar MAIL_FROM a: `NazaBarber <noreply@tudominio.com>`
+   - Cambiar MAIL_FROM a: `RivuzBarber <noreply@tudominio.com>`
 
 #### Endpoints Nuevos
 
@@ -173,10 +173,10 @@ Ver [PASSWORD_RESET_SETUP.md](PASSWORD_RESET_SETUP.md) para detalles.
 
 1. Render construirá automáticamente
 2. Esperar a que finalice el deploy
-3. Notar la URL:  `https://nazabarber-backend-xxxxx.onrender.com`
+3. Notar la URL:  `https://rivuzbarber-backend-xxxxx.onrender.com`
 4. Probar health check:
    ```
-   curl https://nazabarber-backend-xxxxx.onrender.com/api/healthz
+   curl https://rivuzbarber-backend-xxxxx.onrender.com/api/healthz
    ```
 
 ---
@@ -218,13 +218,13 @@ vercel --prod
 Agregar en Vercel dashboard (Settings → Environment Variables):
 
 ```
-VITE_API_BASE_URL=https://nazabarber-backend-xxxxx.onrender.com
+VITE_API_BASE_URL=https://rivuzbarber-backend-xxxxx.onrender.com
 ```
 
 **Importante**:
 - NO incluir `/api` en la URL
 - El cliente generado agrega `/api` automáticamente
-- Las requests irán a: `https://nazabarber-backend.../api/...`
+- Las requests irán a: `https://rivuzbarber-backend.../api/...`
 
 ### Redeploy después de cambios
 
@@ -250,17 +250,17 @@ Después de todo deployado, probar en producción:
 ### Health Check
 
 ```bash
-curl https://nazabarber-backend-xxxxx.onrender.com/api/healthz
+curl https://rivuzbarber-backend-xxxxx.onrender.com/api/healthz
 # Respuesta: {"status":"ok"}
 ```
 
 ### Login
 
 ```bash
-curl -X POST https://nazabarber-backend-xxxxx.onrender.com/api/auth/login \
+curl -X POST https://rivuzbarber-backend-xxxxx.onrender.com/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "admin@nazabarber.com",
+   "email": "admin@rivuzbarber.com",
     "password": "admin123"
   }'
 
@@ -270,7 +270,7 @@ curl -X POST https://nazabarber-backend-xxxxx.onrender.com/api/auth/login \
 ### Frontend
 
 1. Abrir https://tu-frontend-vercel.vercel.app
-2. Login con admin@nazabarber.com / admin123
+2. Login con admin@rivuzbarber.com / admin123
 3. Probar flujos:
    - Ver turnos disponibles
    - Reservar turno

@@ -49,80 +49,85 @@ export default function Login() {
   }
 
   return (
-    <div className="mx-auto max-w-md px-4 sm:px-6 py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Glass variant="strong" className="p-8">
-          <div className="flex items-center justify-center mb-6">
-            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary/40 flex items-center justify-center">
-              <Scissors className="h-5 w-5 text-primary-foreground" />
-            </div>
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <div className="grid gap-6 lg:grid-cols-[0.95fr,1.05fr] lg:items-center">
+        <div className="space-y-5 text-center">
+          <div className="inline-flex mx-auto items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary shadow-sm">
+            <Scissors className="h-3.5 w-3.5" /> BARBERZ
           </div>
-          <h1 className="font-serif text-2xl text-center mb-1">Bienvenido de nuevo</h1>
-          <p className="text-sm text-muted-foreground text-center mb-6">
-            Ingresá para reservar y ver tu historial.
+          <h1 className="headline text-4xl sm:text-5xl lg:text-6xl text-secondary text-center">
+            Ingresá a tu cuenta BARBERZ
+          </h1>
+          <p className="max-w-xl mx-auto text-muted-foreground text-center">
+            Accedé a tus turnos, reservas y perfil con una interfaz clara, rápida y adaptada a mobile.
           </p>
+        </div>
+        <motion.div className="flex items-center justify-center" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <div className="mx-auto w-full lg:w-[440px]">
+            <Glass variant="strong" className="p-6 sm:p-8 rounded-3xl shadow-2xl ring-1 ring-black/5 bg-gradient-to-b from-white to-white/95">
+              <div className="mb-6 flex items-center justify-center">
+                <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-secondary text-white shadow-md">
+                  <Scissors className="h-7 w-7" />
+                </div>
+              </div>
+              <h2 className="headline text-center text-3xl font-semibold text-secondary">Bienvenido de nuevo</h2>
+              <p className="mt-2 text-sm text-muted-foreground text-center">
+                Ingresá para reservar y ver tu historial.
+              </p>
 
-          <form onSubmit={onSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
-                }}
-                autoComplete="email"
-                data-testid="input-login-email"
-              />
-              {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
-            </div>
-            <div>
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Contraseña</Label>
-                <Link
-                  href="/recuperar"
-                  className="text-xs text-muted-foreground hover:text-primary"
-                >
-                  ¿La olvidaste?
+              <form onSubmit={onSubmit} className="mt-8 space-y-4">
+                <div>
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+                    }}
+                    autoComplete="email"
+                    data-testid="input-login-email"
+                    className="h-12 px-4"
+                  />
+                  {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+                </div>
+                <div>
+                  <div className="flex items-center justify-between gap-3">
+                    <Label htmlFor="password">Contraseña</Label>
+                    <Link href="/recuperar" className="text-xs text-muted-foreground hover:text-primary">
+                      ¿La olvidaste?
+                    </Link>
+                  </div>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      if (errors.password) setErrors((prev) => ({ ...prev, password: undefined }));
+                    }}
+                    autoComplete="current-password"
+                    data-testid="input-login-password"
+                    className="h-12 px-4"
+                  />
+                  {errors.password && <p className="mt-1 text-xs text-destructive">{errors.password}</p>}
+                </div>
+                <Button type="submit" className="w-full text-lg py-3" size="lg" disabled={loginMutation.isPending} data-testid="button-login-submit">
+                  {loginMutation.isPending ? "Ingresando..." : "Ingresar"}
+                </Button>
+              </form>
+
+              <div className="mt-6 text-center text-sm text-muted-foreground">
+                ¿No tenés cuenta?{" "}
+                <Link href="/registro" className="text-primary hover:underline">
+                  Crear cuenta
                 </Link>
               </div>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  if (errors.password) setErrors((prev) => ({ ...prev, password: undefined }));
-                }}
-                autoComplete="current-password"
-                data-testid="input-login-password"
-              />
-              {errors.password && <p className="text-xs text-destructive mt-1">{errors.password}</p>}
-            </div>
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={loginMutation.isPending}
-              data-testid="button-login-submit"
-            >
-              {loginMutation.isPending ? "Ingresando..." : "Ingresar"}
-            </Button>
-          </form>
-
-          <div className="text-center text-sm text-muted-foreground mt-6">
-            ¿No tenés cuenta?{" "}
-            <Link href="/registro" className="text-primary hover:underline">
-              Crear cuenta
-            </Link>
+            </Glass>
           </div>
-        </Glass>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }

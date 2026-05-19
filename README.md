@@ -1,6 +1,6 @@
-# NazaBarber
+# RivuzBarber
 
-NazaBarber es una app full-stack para gestión de turnos de barbería con panel admin, clientes y portfolio / red social.
+RivuzBarber es una app full-stack para gestión de turnos de barbería con panel admin, clientes y portfolio / red social.
 
 ## Stack
 - Backend: Node.js + Express + Prisma + PostgreSQL

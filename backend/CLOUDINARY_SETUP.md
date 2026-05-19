@@ -6,7 +6,7 @@ Variables de entorno necesarias (poner en Render/Lambda):
 - CLOUDINARY_CLOUD_NAME=tu_cloud_name
 - CLOUDINARY_API_KEY=tu_api_key
 - CLOUDINARY_API_SECRET=tu_api_secret
-- CLOUDINARY_FOLDER=nazabarber
+- CLOUDINARY_FOLDER=rivuzbarber
 
 Flujo recomendado de uploads:
 

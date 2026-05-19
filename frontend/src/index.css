@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -61,71 +62,69 @@
 }
 
 :root, .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
-  --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --button-outline: rgba(11, 31, 59, .14);
+  --badge-outline: rgba(11, 31, 59, .08);
+  --opaque-button-border-intensity: 10;
+  --elevate-1: rgba(215, 38, 56, .04);
+  --elevate-2: rgba(11, 31, 59, .08);
 
-  /* Dark charcoal background */
-  --background: 240 10% 4%;
-  --foreground: 0 0% 98%;
-  --border: 240 10% 12%;
+  --background: 220 33% 98%;
+  --foreground: 216 70% 14%;
+  --border: 215 24% 88%;
 
-  --card: 240 10% 6%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 240 10% 14%;
+  --card: 0 0% 100%;
+  --card-foreground: 216 70% 14%;
+  --card-border: 215 24% 88%;
 
-  --sidebar: 240 10% 6%;
-  --sidebar-foreground: 0 0% 98%;
-  --sidebar-border: 240 10% 14%;
-  --sidebar-primary: 38 60% 55%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 240 10% 12%;
-  --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-ring: 38 60% 55%;
+  --sidebar: 216 70% 14%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-border: 216 40% 20%;
+  --sidebar-primary: 354 69% 50%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 216 40% 20%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 354 69% 50%;
 
-  --popover: 240 10% 6%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 240 10% 14%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 216 70% 14%;
+  --popover-border: 215 24% 88%;
 
-  /* Warm brass gold */
-  --primary: 38 60% 55%;
-  --primary-foreground: 0 0% 98%;
+  --primary: 354 69% 50%;
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 240 10% 12%;
-  --secondary-foreground: 0 0% 98%;
+  --secondary: 216 70% 14%;
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 240 10% 12%;
-  --muted-foreground: 240 5% 65%;
+  --muted: 220 20% 96%;
+  --muted-foreground: 215 15% 47%;
 
-  --accent: 240 10% 12%;
-  --accent-foreground: 0 0% 98%;
+  --accent: 220 20% 96%;
+  --accent-foreground: 216 70% 14%;
 
-  --destructive: 0 62% 30%;
-  --destructive-foreground: 0 0% 98%;
+  --destructive: 354 69% 50%;
+  --destructive-foreground: 0 0% 100%;
 
-  --input: 240 10% 16%;
-  --ring: 38 60% 55%;
-  --chart-1: 38 60% 55%;
-  --chart-2: 240 10% 12%;
-  --chart-3: 0 0% 98%;
-  --chart-4: 240 5% 65%;
-  --chart-5: 0 62% 30%;
+  --input: 215 24% 88%;
+  --ring: 354 69% 50%;
+  --chart-1: 354 69% 50%;
+  --chart-2: 216 70% 14%;
+  --chart-3: 215 15% 47%;
+  --chart-4: 220 20% 96%;
+  --chart-5: 0 0% 100%;
 
-  --app-font-sans: 'Inter', sans-serif;
-  --app-font-serif: Georgia, serif;
-  --app-font-mono: Menlo, monospace;
-  --radius: 0.75rem;
+  --app-font-sans: 'Outfit', sans-serif;
+  --app-font-serif: 'Outfit', sans-serif;
+  --app-font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius: 1.1rem;
 
-  --shadow-2xs: 0px 2px 0px 0px rgba(0,0,0,0.4);
-  --shadow-xs: 0px 2px 4px 0px rgba(0,0,0,0.4);
-  --shadow-sm: 0px 4px 8px -2px rgba(0,0,0,0.5);
-  --shadow: 0px 8px 16px -4px rgba(0,0,0,0.5);
-  --shadow-md: 0px 12px 24px -6px rgba(0,0,0,0.6);
-  --shadow-lg: 0px 16px 32px -8px rgba(0,0,0,0.6);
-  --shadow-xl: 0px 24px 48px -12px rgba(0,0,0,0.7);
-  --shadow-2xl: 0px 32px 64px -16px rgba(0,0,0,0.8);
+  --shadow-2xs: 0px 1px 2px 0px rgba(11,31,59,0.04);
+  --shadow-xs: 0px 2px 4px 0px rgba(11,31,59,0.05);
+  --shadow-sm: 0px 6px 12px -6px rgba(11,31,59,0.12);
+  --shadow: 0px 10px 24px -10px rgba(11,31,59,0.16);
+  --shadow-md: 0px 14px 32px -12px rgba(11,31,59,0.18);
+  --shadow-lg: 0px 20px 48px -16px rgba(11,31,59,0.22);
+  --shadow-xl: 0px 28px 64px -20px rgba(11,31,59,0.24);
+  --shadow-2xl: 0px 36px 80px -24px rgba(11,31,59,0.28);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -145,8 +144,14 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    background-image: radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.03), transparent 25%), radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02), transparent 25%);
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(215, 38, 56, 0.08), transparent 22%),
+      radial-gradient(circle at 90% 0%, rgba(11, 31, 59, 0.08), transparent 20%),
+      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(247,248,250,1));
     background-attachment: fixed;
+    letter-spacing: -0.01em;
+    min-width: 320px;
+    overflow-x: hidden;
   }
 
   @media (max-width: 768px) {
@@ -212,5 +217,21 @@
   .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
+  }
+
+  .brand-mark {
+    letter-spacing: -0.08em;
+    font-weight: 800;
+  }
+
+  .headline {
+    letter-spacing: -0.08em;
+    font-weight: 800;
+    line-height: 0.95;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.08em;
+    font-weight: 800;
   }
 }

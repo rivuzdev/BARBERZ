@@ -1,6 +1,6 @@
 # Auditoría Selectiva
 
-NazaBarber usa auditoría selectiva para guardar solo acciones críticas y cuidar el storage de Neon Free.
+RivuzBarber usa auditoría selectiva para guardar solo acciones críticas y cuidar el storage de Neon Free.
 
 ## Variables de entorno
 

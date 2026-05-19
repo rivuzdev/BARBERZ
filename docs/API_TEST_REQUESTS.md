@@ -1,4 +1,4 @@
-# API Test Requests - NazaBarber
+# API Test Requests - RivuzBarber
 
 Guía rápida para QA manual con `curl`.
 
@@ -6,9 +6,9 @@ Guía rápida para QA manual con `curl`.
 
 ```bash
 BASE_URL=http://localhost:3000
-ADMIN_EMAIL=admin@nazabarber.com
+ADMIN_EMAIL=admin@rivuzbarber.com
 ADMIN_PASS=admin123
-CLIENT_EMAIL=cliente.test@nazabarber.test
+CLIENT_EMAIL=cliente.test@rivuzbarber.test
 CLIENT_PASS=cliente123
 ```
 

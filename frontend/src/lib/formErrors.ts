@@ -52,7 +52,7 @@ function mapKnownMessage(input?: string, status?: number): string | null {
   }
 
   if (msg.includes("límite") && msg.includes("ip")) {
-    return "Se alcanzó el máximo de reservas sin cuenta permitidas desde esta conexión. Probá nuevamente más tarde o comunicate con la barbería.";
+    return "Se alcanzó el máximo de reservas sin cuenta permitidas desde esta conexión. Probá nuevamente más tarde o comunicate con BARBERZ.";
   }
 
   if (msg.includes("no podés reservar un turno que ya pasó")) {

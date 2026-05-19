@@ -109,7 +109,7 @@
 ```bash
 curl -X POST http://localhost:3000/api/auth/forgot-password \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@nazabarber.com"}'
+   -d '{"email":"admin@rivuzbarber.com"}'
 ```
 
 **Response (siempre igual):**
@@ -259,7 +259,7 @@ npm install resend
 En `backend/.env`:
 ```env
 RESEND_API_KEY=               # Vacío en dev, real en producción
-MAIL_FROM=NazaBarber <onboarding@resend.dev>
+MAIL_FROM=RivuzBarber <onboarding@resend.dev>
 ```
 
 ### Paso 4: Iniciar Backend
@@ -273,7 +273,7 @@ npm run dev
 ✅ Variables de entorno validadas
 ✅ Ambiente: DEVELOPMENT
 ℹ️  Resend: No configurado
-🧔 NazaBarber API v1.0
+🧔 RivuzBarber API v1.0
 ```
 
 ---
@@ -283,7 +283,7 @@ npm run dev
 ### Local (sin Resend API key)
 
 1. **Ir a**: http://localhost:5173/recuperar
-2. **Ingresar**: admin@nazabarber.com
+2. **Ingresar**: admin@rivuzbarber.com
 3. **Hacer clic**: "Enviar instrucciones"
 4. **Revisar logs**: Backend mostrará:
    ```
@@ -309,7 +309,7 @@ npm run dev
 # 1. Solicitar reset
 curl -X POST http://localhost:3000/api/auth/forgot-password \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@nazabarber.com"}'
+   -d '{"email":"admin@rivuzbarber.com"}'
 
 # 2. Extraer token de logs
 
@@ -351,7 +351,7 @@ curl -X POST http://localhost:3000/api/auth/reset-password \
 2. **En Render Environment Variables:**
    ```
    RESEND_API_KEY=re_abc123...
-   MAIL_FROM=NazaBarber <no-reply@tudominio.com>
+   MAIL_FROM=RivuzBarber <no-reply@tudominio.com>
    FRONTEND_URL=https://tuapp.vercel.app
    ```
 

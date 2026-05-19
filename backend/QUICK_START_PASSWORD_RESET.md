@@ -53,7 +53,7 @@ npm run dev
 ✅ Variables de entorno validadas correctamente
 ✅ Ambiente: DEVELOPMENT
 ℹ️  Resend: No configurado (RESEND_API_KEY no está presente)
-🧔 NazaBarber API v1.0
+🧔 RivuzBarber API v1.0
 Corriendo en puerto 3000
 ```
 
@@ -69,7 +69,7 @@ http://localhost:5173/recuperar
 
 ### Paso 2: Ingresar email
 
-Escribe: `admin@nazabarber.com`
+Escribe: `admin@rivuzbarber.com`
 
 ### Paso 3: Ver instrucciones
 
@@ -79,7 +79,7 @@ Escribe: `admin@nazabarber.com`
 
 ```
 📧 [DEV MODE] Email de recuperación (no enviado):
-  Para: admin@nazabarber.com
+  Para: admin@rivuzbarber.com
   resetUrl: http://localhost:5173/restablecer/abc123xyz?userId=1
 ```
 
@@ -106,7 +106,7 @@ Usa la nueva contraseña para ingresar. ✅ Listo!
 # 1. Solicitar reset
 curl -X POST http://localhost:3000/api/auth/forgot-password \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@nazabarber.com"}'
+  -d '{"email":"admin@rivuzbarber.com"}'
 
 # Response:
 # {"message":"Si el email existe en nuestro sistema..."}
@@ -135,7 +135,7 @@ curl -X POST http://localhost:3000/api/auth/reset-password \
 ```env
 FRONTEND_URL=http://localhost:5173
 RESEND_API_KEY=           # Vacío (uso modo consola)
-MAIL_FROM=NazaBarber <onboarding@resend.dev>
+MAIL_FROM=RivuzBarber <onboarding@resend.dev>
 ```
 
 No necesitas cambiar nada. ✅
@@ -146,7 +146,7 @@ Cuando deployes en Render, agregarás:
 
 ```env
 RESEND_API_KEY=re_abc123...        # De https://resend.com/api-keys
-MAIL_FROM=NazaBarber <noreply@tudominio.com>
+MAIL_FROM=RivuzBarber <noreply@tudominio.com>
 ```
 
 Ver [PRODUCCION.md](PRODUCCION.md) para detalles.
@@ -166,7 +166,7 @@ Ver [PRODUCCION.md](PRODUCCION.md) para detalles.
 ```json
 // Request
 POST /api/auth/forgot-password
-{"email":"admin@nazabarber.com"}
+{"email":"admin@rivuzbarber.com"}
 
 // Response (siempre igual)
 {"message":"Si el email existe en nuestro sistema, recibirás instrucciones..."}

@@ -17,7 +17,7 @@ const prisma = new PrismaClient({
 function getAdminSeedConfig() {
     const isProduction = process.env.NODE_ENV === 'production';
 
-    const email = (process.env.ADMIN_EMAIL || 'admin@nazabarber.com').trim().toLowerCase();
+    const email = (process.env.ADMIN_EMAIL || 'admin@rivuzbarber.com').trim().toLowerCase();
     const passwordFromEnv = process.env.ADMIN_PASSWORD;
     const password = passwordFromEnv && passwordFromEnv.trim().length > 0
         ? passwordFromEnv
@@ -38,9 +38,9 @@ function getAdminSeedConfig() {
     return {
         email,
         password,
-        nombre: process.env.ADMIN_NOMBRE || 'Naza Barber',
+        nombre: process.env.ADMIN_NOMBRE || 'Rivuz Barber',
         telefono: process.env.ADMIN_TELEFONO || '3430000000',
-        instagram: process.env.ADMIN_INSTAGRAM || '@nazabarber',
+        instagram: process.env.ADMIN_INSTAGRAM || '@rivuzbarber',
         bio: process.env.ADMIN_BIO || 'Barbería profesional. Cortes modernos, perfilados y estilo urbano.',
         whatsapp: process.env.ADMIN_WHATSAPP || '3430000000',
     };

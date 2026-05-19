@@ -146,10 +146,10 @@ export default function Reservar() {
     if (!postReserva) return "";
 
     if (isAdminAnonymousBooking) {
-      return `Hola ${postReserva.clienteNombre || ""}, te confirmamos tu turno en Naza para el ${fechaLarga(postReserva.fecha)} a las ${postReserva.hora}. Te esperamos.`;
+      return `Hola ${postReserva.clienteNombre || ""}, te confirmamos tu turno en BARBERZ para el ${fechaLarga(postReserva.fecha)} a las ${postReserva.hora}. Te esperamos.`;
     }
 
-    return `Hola Naza, acabo de reservar un turno.\n\nNombre: ${postReserva.clienteNombre || ""}\nTurno: ${postReserva.fecha} a las ${postReserva.hora}\nWhatsApp: ${postReserva.clienteWhatsapp || postReserva.clienteTelefono || ""}\n\nGracias.`;
+    return `Hola BARBERZ, acabo de reservar un turno.\n\nNombre: ${postReserva.clienteNombre || ""}\nTurno: ${postReserva.fecha} a las ${postReserva.hora}\nWhatsApp: ${postReserva.clienteWhatsapp || postReserva.clienteTelefono || ""}\n\nGracias.`;
   };
 
   const grouped = useMemo(() => {
@@ -205,13 +205,14 @@ export default function Reservar() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6 py-12">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-12">
       <div className="text-center mb-10">
-        <div className="text-xs uppercase tracking-[0.25em] text-primary mb-2">
-          Agenda online
-        </div>
-        <h1 className="font-serif text-4xl mb-3">Elegí tu turno</h1>
+        <div className="text-xs uppercase tracking-[0.28em] text-primary mb-2">Agenda online</div>
+        <h1 className="headline text-4xl sm:text-5xl text-secondary mb-3">Elegí tu turno en BARBERZ</h1>
         <GoldDivider className="mx-auto" />
+        <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-muted-foreground">
+          Reservá en pocos pasos y asegurá tu horario con una experiencia clara, rápida y mobile first.
+        </p>
       </div>
 
       {isLoading ? (
@@ -219,7 +220,7 @@ export default function Reservar() {
       ) : grouped.length === 0 ? (
         <Glass className="p-10 text-center">
           <Calendar className="h-8 w-8 text-primary mx-auto mb-3" />
-          <div className="font-serif text-xl mb-2">No hay turnos disponibles para este horario.</div>
+          <div className="headline text-xl text-secondary mb-2">No hay turnos disponibles para este horario.</div>
           <p className="text-muted-foreground text-sm">
             Volvé en unos días o escribinos por Instagram.
           </p>
@@ -236,10 +237,10 @@ export default function Reservar() {
                   key={fecha}
                   onClick={() => setSelectedDate(fecha)}
                   data-testid={`button-fecha-${fecha}`}
-                  className={`text-left px-3 py-2.5 rounded-lg border transition-colors hover-elevate ${
+                    className={`text-left px-3 py-3 rounded-2xl border transition-colors hover-elevate ${
                     activeFecha === fecha
                       ? "bg-primary/10 border-primary/30 text-primary"
-                      : "border-transparent text-muted-foreground"
+                      : "border-border bg-white text-muted-foreground"
                   }`}
                 >
                   <div className="text-sm">{fechaLarga(fecha)}</div>
@@ -257,7 +258,7 @@ export default function Reservar() {
                 <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
                   Horarios
                 </div>
-                <div className="font-serif text-xl">
+                <div className="headline text-xl text-secondary">
                   {activeFecha ? fechaLarga(activeFecha) : "—"}
                 </div>
               </div>
@@ -274,7 +275,7 @@ export default function Reservar() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     onClick={() => setSelectedTurno(t)}
                     data-testid={`button-slot-${t.hora}`}
-                    className="px-2 sm:px-3 py-2 rounded-lg border border-white/10 bg-secondary/40 text-xs sm:text-sm hover:border-primary/40 hover:bg-primary/10 hover:text-primary transition-colors"
+                    className="px-2 sm:px-3 py-3 rounded-2xl border border-border bg-white text-xs sm:text-sm text-secondary hover:border-primary/40 hover:bg-primary/10 hover:text-primary transition-colors"
                   >
                     {t.hora}
                   </motion.button>
@@ -286,9 +287,9 @@ export default function Reservar() {
       )}
 
       <Dialog open={!!selectedTurno} onOpenChange={(o) => !o && setSelectedTurno(null)}>
-        <DialogContent className="bg-card/90 backdrop-blur-xl border-white/10">
+        <DialogContent className="bg-white/95 backdrop-blur-xl border-border shadow-xl">
           <DialogHeader>
-            <DialogTitle className="font-serif text-2xl">Confirmar turno</DialogTitle>
+            <DialogTitle className="headline text-2xl text-secondary">Confirmar turno</DialogTitle>
             <DialogDescription className="">
               {selectedTurno && `${fechaLarga(selectedTurno.fecha)} · ${selectedTurno.hora} hs`}
             </DialogDescription>
@@ -404,14 +405,14 @@ export default function Reservar() {
                       const msgPlain = getPostReservaWhatsAppMessage();
                       const url = phone ? buildWhatsAppUrl(phone, msgPlain) : null;
                       if (url) window.open(url, '_blank', 'noopener');
-                      else toast.error(isAdminAnonymousBooking ? 'No se encontró un WhatsApp de contacto del cliente' : 'No se encontró un WhatsApp de contacto para Naza');
+                      else toast.error(isAdminAnonymousBooking ? 'No se encontró un WhatsApp de contacto del cliente' : 'No se encontró un WhatsApp de contacto para BARBERZ');
                     } catch (e) {
                       console.error(e);
-                      toast.error(isAdminAnonymousBooking ? 'No pudimos obtener el WhatsApp del cliente' : 'No pudimos obtener el contacto de Naza');
+                      toast.error(isAdminAnonymousBooking ? 'No pudimos obtener el WhatsApp del cliente' : 'No pudimos obtener el contacto de BARBERZ');
                     }
                   }}
                 >
-                  {isAdminAnonymousBooking ? "Enviar WhatsApp al cliente" : "Enviar WhatsApp a Naza"}
+                  {isAdminAnonymousBooking ? "Enviar WhatsApp al cliente" : "Enviar WhatsApp a BARBERZ"}
                 </Button>
             </div>
           </Glass>

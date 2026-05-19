@@ -90,11 +90,9 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-8">
       <div>
-        <div className="text-xs uppercase tracking-[0.25em] text-primary mb-1">Panel</div>
-        <h1 className="font-serif text-3xl">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">
-          Un vistazo rápido a tu agenda, clientes y desempeño.
-        </p>
+        <div className="text-xs uppercase tracking-[0.28em] text-primary mb-1">Panel</div>
+        <h1 className="headline text-3xl text-secondary">Dashboard BARBERZ</h1>
+        <p className="text-sm text-muted-foreground">Un vistazo rápido a tu agenda, clientes y desempeño.</p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
@@ -116,7 +114,7 @@ export default function AdminDashboard() {
                   </div>
                   <Icon className="h-4 w-4 text-primary shrink-0" />
                 </div>
-                <div className="font-serif text-2xl sm:text-3xl">{isLoading ? "—" : value}</div>
+                <div className="headline text-2xl sm:text-3xl text-secondary">{isLoading ? "—" : value}</div>
               </Glass>
             </motion.div>
           );
@@ -126,7 +124,7 @@ export default function AdminDashboard() {
       <div className="grid lg:grid-cols-2 gap-3 sm:gap-4">
         <Glass className="p-5">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-serif text-xl">Próximos turnos</h2>
+            <h2 className="headline text-xl text-secondary">Próximos turnos</h2>
             <Link
               href="/admin/reservas"
               className="text-xs text-muted-foreground hover:text-primary inline-flex items-center gap-1"
@@ -178,7 +176,7 @@ export default function AdminDashboard() {
                     {clienteWhatsapp && normalizeWhatsAppPhone(clienteWhatsapp) && (
                       <button
                         onClick={() => {
-                          const msg = `Hola ${clienteNombre ?? ''}, te confirmamos tu turno en Naza para el ${fechaLarga(t.fecha)} a las ${t.hora}. Te esperamos.`;
+                          const msg = `Hola ${clienteNombre ?? ''}, te confirmamos tu turno en BARBERZ para el ${fechaLarga(t.fecha)} a las ${t.hora}. Te esperamos.`;
                           const url = buildWhatsAppUrl(clienteWhatsapp, msg);
                           if (url) window.open(url, '_blank', 'noopener');
                         }}
@@ -197,7 +195,7 @@ export default function AdminDashboard() {
         </Glass>
 
         <Glass className="p-5">
-          <h2 className="font-serif text-xl mb-4">Atajos</h2>
+          <h2 className="headline text-xl text-secondary mb-4">Atajos</h2>
           <div className="grid grid-cols-2 gap-3">
             <Link
               href="/admin/turnos"
@@ -238,7 +236,7 @@ export default function AdminDashboard() {
       <Glass className="p-5 sm:p-6 space-y-5">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div>
-            <h2 className="font-serif text-xl">Resumen del período</h2>
+            <h2 className="headline text-xl text-secondary">Resumen del período</h2>
             <p className="text-sm text-muted-foreground">
               Solo cortados y cancelados, separados por semana y mes.
             </p>
@@ -249,7 +247,7 @@ export default function AdminDashboard() {
           <div className="rounded-lg border border-white/10 bg-secondary/20 p-4 sm:p-5 space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <h3 className="font-serif text-lg leading-none">Esta semana</h3>
+                <h3 className="headline text-lg text-secondary leading-none">Esta semana</h3>
                 <p className="text-xs text-muted-foreground mt-2">
                   Movimiento acumulado de los últimos días.
                 </p>
@@ -274,7 +272,7 @@ export default function AdminDashboard() {
           <div className="rounded-lg border border-white/10 bg-secondary/20 p-4 sm:p-5 space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <h3 className="font-serif text-lg leading-none">Este mes</h3>
+                <h3 className="headline text-lg text-secondary leading-none">Este mes</h3>
                 <p className="text-xs text-muted-foreground mt-2">
                   Acumulado general del mes en curso.
                 </p>

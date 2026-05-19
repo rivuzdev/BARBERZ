@@ -94,7 +94,7 @@ app.use('/uploads', express.static('uploads'));
 app.get('/', (req, res) => {
     res.json({
         ok: true,
-        message: 'NazaBarber API funcionando correctamente',
+        message: 'RivuzBarber API funcionando correctamente',
         timestamp: new Date().toISOString(),
     });
 });
@@ -169,7 +169,7 @@ const PORT = ENV.PORT;
 const server = app.listen(PORT, () => {
     console.log(`
   ╔════════════════════════════════════════╗
-  ║     🧔 NazaBarber API v1.0             ║
+    ║     🧔 RivuzBarber API v1.0           ║
   ║     Corriendo en puerto ${PORT}         ║
   ║     Ambiente: ${ENV.NODE_ENV.toUpperCase().padEnd(18)}║
   ╚════════════════════════════════════════╝

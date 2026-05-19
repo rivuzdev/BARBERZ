@@ -71,97 +71,67 @@ export default function Registro() {
   }
 
   return (
-    <div className="mx-auto max-w-md px-4 sm:px-6 py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Glass variant="strong" className="p-8">
-          <div className="flex items-center justify-center mb-6">
-            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary/40 flex items-center justify-center">
-              <Scissors className="h-5 w-5 text-primary-foreground" />
-            </div>
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <div className="grid gap-6 lg:grid-cols-[0.95fr,1.05fr] lg:items-center">
+        <div className="space-y-5">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary shadow-sm">
+            <Scissors className="h-3.5 w-3.5" /> BARBERZ
           </div>
-          <h1 className="font-serif text-2xl text-center mb-1">Crear cuenta</h1>
-          <p className="text-sm text-muted-foreground text-center mb-6">
-            Reservá más rápido y mantené tu historial.
+          <h1 className="headline text-4xl sm:text-5xl lg:text-6xl text-secondary">
+            Creá tu cuenta BARBERZ
+          </h1>
+          <p className="max-w-xl text-muted-foreground">
+            Guardá tus turnos, acelerá futuras reservas y mantené todo el historial en un solo lugar.
           </p>
+        </div>
 
-          <form onSubmit={onSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="nombre">Nombre completo</Label>
-              <Input
-                id="nombre"
-                value={nombre}
-                onChange={(e) => {
-                  setNombre(e.target.value);
-                  if (errors.nombre) setErrors((prev) => ({ ...prev, nombre: undefined }));
-                }}
-                data-testid="input-reg-nombre"
-              />
-              {errors.nombre && <p className="text-xs text-destructive mt-1">{errors.nombre}</p>}
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <Glass variant="strong" className="p-6 sm:p-8">
+            <div className="mb-6 flex items-center justify-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-white shadow-sm">
+                <Scissors className="h-5 w-5" />
+              </div>
             </div>
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
-                }}
-                data-testid="input-reg-email"
-              />
-              {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
-            </div>
-            <div>
-              <Label htmlFor="password">Contraseña</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  if (errors.password) setErrors((prev) => ({ ...prev, password: undefined }));
-                }}
-                data-testid="input-reg-password"
-              />
-              {errors.password && <p className="text-xs text-destructive mt-1">{errors.password}</p>}
-            </div>
-            <div>
-              <Label htmlFor="whatsapp">WhatsApp</Label>
-              <Input
-                id="whatsapp"
-                value={whatsapp}
-                onChange={(e) => {
-                  setWhatsapp(e.target.value);
-                  if (errors.whatsapp) setErrors((prev) => ({ ...prev, whatsapp: undefined }));
-                }}
-                placeholder="+54 9 11 ..."
-                data-testid="input-reg-whatsapp"
-              />
-              {errors.whatsapp && <p className="text-xs text-destructive mt-1">{errors.whatsapp}</p>}
-            </div>
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={mutation.isPending}
-              data-testid="button-reg-submit"
-            >
-              {mutation.isPending ? "Creando cuenta..." : "Crear cuenta"}
-            </Button>
-          </form>
+            <h2 className="headline text-center text-3xl text-secondary">Crear cuenta</h2>
+            <p className="mt-2 text-sm text-muted-foreground text-center">
+              Reservá más rápido y mantené tu historial.
+            </p>
 
-          <div className="text-center text-sm text-muted-foreground mt-6">
-            ¿Ya tenés cuenta?{" "}
-            <Link href="/login" className="text-primary hover:underline">
-              Ingresá
-            </Link>
-          </div>
-        </Glass>
-      </motion.div>
+            <form onSubmit={onSubmit} className="mt-8 space-y-4">
+              <div>
+                <Label htmlFor="nombre">Nombre completo</Label>
+                <Input id="nombre" value={nombre} onChange={(e) => { setNombre(e.target.value); if (errors.nombre) setErrors((prev) => ({ ...prev, nombre: undefined })); }} data-testid="input-reg-nombre" />
+                {errors.nombre && <p className="mt-1 text-xs text-destructive">{errors.nombre}</p>}
+              </div>
+              <div>
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" value={email} onChange={(e) => { setEmail(e.target.value); if (errors.email) setErrors((prev) => ({ ...prev, email: undefined })); }} data-testid="input-reg-email" />
+                {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+              </div>
+              <div>
+                <Label htmlFor="password">Contraseña</Label>
+                <Input id="password" type="password" value={password} onChange={(e) => { setPassword(e.target.value); if (errors.password) setErrors((prev) => ({ ...prev, password: undefined })); }} data-testid="input-reg-password" />
+                {errors.password && <p className="mt-1 text-xs text-destructive">{errors.password}</p>}
+              </div>
+              <div>
+                <Label htmlFor="whatsapp">WhatsApp</Label>
+                <Input id="whatsapp" value={whatsapp} onChange={(e) => { setWhatsapp(e.target.value); if (errors.whatsapp) setErrors((prev) => ({ ...prev, whatsapp: undefined })); }} placeholder="+54 9 11 ..." data-testid="input-reg-whatsapp" />
+                {errors.whatsapp && <p className="mt-1 text-xs text-destructive">{errors.whatsapp}</p>}
+              </div>
+              <Button type="submit" className="w-full" disabled={mutation.isPending} data-testid="button-reg-submit">
+                {mutation.isPending ? "Creando cuenta..." : "Crear cuenta"}
+              </Button>
+            </form>
+
+            <div className="mt-6 text-center text-sm text-muted-foreground">
+              ¿Ya tenés cuenta?{" "}
+              <Link href="/login" className="text-primary hover:underline">
+                Ingresá
+              </Link>
+            </div>
+          </Glass>
+        </motion.div>
+      </div>
     </div>
   );
 }

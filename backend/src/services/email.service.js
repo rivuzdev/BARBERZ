@@ -125,14 +125,14 @@ async function sendPasswordResetEmail({ to, resetUrl, nombre = 'Usuario' }) {
 <body>
     <div class="container">
         <div class="header">
-            <h1>🧔 NazaBarber</h1>
+            <h1>🧔 RivuzBarber</h1>
             <p>Recupera tu contraseña</p>
         </div>
         
         <div class="content">
             <p>Hola ${nombre},</p>
             
-            <p>Recibimos una solicitud para recuperar tu contraseña en NazaBarber. Si fuiste tú, haz clic en el botón de abajo para establecer una nueva contraseña.</p>
+            <p>Recibimos una solicitud para recuperar tu contraseña en RivuzBarber. Si fuiste tú, haz clic en el botón de abajo para establecer una nueva contraseña.</p>
             
             <div style="text-align: center;">
                 <a href="${resetUrl}" class="button">Recuperar Contraseña</a>
@@ -151,7 +151,7 @@ async function sendPasswordResetEmail({ to, resetUrl, nombre = 'Usuario' }) {
         </div>
         
         <div class="footer">
-            <p>© ${new Date().getFullYear()} NazaBarber. Todos los derechos reservados.</p>
+            <p>© ${new Date().getFullYear()} RivuzBarber. Todos los derechos reservados.</p>
             <p>Este es un email automático. Por favor no respondas a este correo.</p>
         </div>
     </div>
@@ -163,7 +163,7 @@ async function sendPasswordResetEmail({ to, resetUrl, nombre = 'Usuario' }) {
         const response = await resend.emails.send({
             from: resendConfig.mailFrom,
             to: to,
-            subject: '🧔 Recupera tu contraseña en NazaBarber',
+            subject: '🧔 Recupera tu contraseña en RivuzBarber',
             html: htmlContent,
         });
 
@@ -228,7 +228,7 @@ async function sendPasswordChangedEmail({ to, nombre = 'Usuario' }) {
 <body>
     <div class="container">
         <div class="header">
-            <h1>🧔 NazaBarber</h1>
+            <h1>🧔 RivuzBarber</h1>
             <p>Contraseña actualizada</p>
         </div>
         <div class="content">
@@ -246,7 +246,7 @@ async function sendPasswordChangedEmail({ to, nombre = 'Usuario' }) {
         const response = await resend.emails.send({
             from: resendConfig.mailFrom,
             to: to,
-            subject: '✅ Tu contraseña en NazaBarber ha sido actualizada',
+            subject: '✅ Tu contraseña en RivuzBarber ha sido actualizada',
             html: htmlContent,
         });
 

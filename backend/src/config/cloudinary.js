@@ -11,7 +11,7 @@
 const cloudinary = require('cloudinary').v2;
 
 const CLOUDINARY_ENABLED = String(process.env.CLOUDINARY_ENABLED).toLowerCase() === 'true';
-const CLOUDINARY_FOLDER = process.env.CLOUDINARY_FOLDER || 'nazabarber';
+const CLOUDINARY_FOLDER = process.env.CLOUDINARY_FOLDER || 'rivuzbarber';
 
 if (CLOUDINARY_ENABLED) {
     const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = process.env;

@@ -73,7 +73,7 @@ Edita `backend/.env`:
 ```env
 # Email - RESEND (Recuperación de contraseña)
 RESEND_API_KEY=           # Déjar vacío en desarrollo (usa modo simulado)
-MAIL_FROM=NazaBarber <onboarding@resend.dev>
+MAIL_FROM=RivuzBarber <onboarding@resend.dev>
 
 # Ya debe estar:
 FRONTEND_URL=http://localhost:5173
@@ -94,7 +94,7 @@ Si RESEND_API_KEY está vacío:
 
 ```
 RESEND_API_KEY=re_abc123...   # Tu API key real
-MAIL_FROM=NazaBarber <no-reply@tudominio.com>
+MAIL_FROM=RivuzBarber <no-reply@tudominio.com>
 FRONTEND_URL=https://tuapp.vercel.app
 BACKEND_URL=https://backend-render-url.onrender.com
 ```
@@ -117,7 +117,7 @@ npm run dev
 ✅ Variables de entorno validadas correctamente
 ✅ Ambiente: DEVELOPMENT
 ℹ️  Resend: No configurado (RESEND_API_KEY no está presente)
-🧔 NazaBarber API v1.0
+🧔 RivuzBarber API v1.0
 Corriendo en puerto 3000
 ```
 
@@ -132,7 +132,7 @@ npm run dev
 ### Paso 3: Probar recuperación
 
 1. Abre http://localhost:5173/recuperar
-2. Ingresa: `admin@nazabarber.com`
+2. Ingresa: `admin@rivuzbarber.com`
 3. Haz clic "Enviar instrucciones"
 4. Revisa logs del backend (verás el link)
 5. Copia el link que genera algo como:
@@ -151,7 +151,7 @@ npm run dev
 # 1. Solicitar reset
 curl -X POST http://localhost:3000/api/auth/forgot-password \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@nazabarber.com"}'
+   -d '{"email":"admin@rivuzbarber.com"}'
 
 # Response: 
 # {
@@ -170,7 +170,7 @@ curl -X POST http://localhost:3000/api/auth/forgot-password \
 **Request:**
 ```json
 {
-  "email": "admin@nazabarber.com"
+   "email": "admin@rivuzbarber.com"
 }
 ```
 
@@ -334,7 +334,7 @@ npm install resend
 3. En Render → Environment Variables:
    ```
    RESEND_API_KEY=re_abc123...
-   MAIL_FROM=NazaBarber <no-reply@tudominio.com>
+   MAIL_FROM=RivuzBarber <no-reply@tudominio.com>
    ```
 
 ### Paso 2: Deploy

@@ -1,6 +1,6 @@
 # Deployment Producción (Neon + Render + Vercel)
 
-Este documento deja la app NazaBarber lista para deploy real sin exponer secretos.
+Este documento deja la app RivuzBarber lista para deploy real sin exponer secretos.
 
 ## 1. Pre-check de repositorio
 
@@ -25,7 +25,7 @@ Si todavía no está publicado:
 
 ```bash
 git add .
-git commit -m "Initial production-ready commit - NazaBarber"
+git commit -m "Initial production-ready commit - RivuzBarber"
 git remote add origin https://github.com/lihuensg/app-barberia.git
 git branch -M main
 git push -u origin main
@@ -41,8 +41,8 @@ git push -u origin main
 
 ## 3. Neon (PostgreSQL)
 
-1. Crear proyecto `nazabarber`.
-2. Crear base `nazabarber`.
+1. Crear proyecto `rivuzbarber`.
+2. Crear base `rivuzbarber`.
 3. Copiar `DATABASE_URL` desde Connect.
 4. Guardar esa URL solo en Render (no en GitHub, no en frontend).
 
@@ -88,13 +88,13 @@ FRONTEND_URL=<url vercel>
 BACKEND_URL=<url render>
 
 RESEND_API_KEY=<real>
-MAIL_FROM=NazaBarber <onboarding@resend.dev>
+MAIL_FROM=RivuzBarber <onboarding@resend.dev>
 
 CLOUDINARY_ENABLED=true
 CLOUDINARY_CLOUD_NAME=<real>
 CLOUDINARY_API_KEY=<real>
 CLOUDINARY_API_SECRET=<real>
-CLOUDINARY_FOLDER=nazabarber
+CLOUDINARY_FOLDER=rivuzbarber
 
 MIN_BOOKING_NOTICE_MINUTES=10
 CANCEL_MIN_HOURS=3
@@ -145,11 +145,11 @@ El seed usa upsert para no duplicar admin.
 Variables recomendadas en Render para seed:
 
 ```env
-ADMIN_EMAIL=admin@nazabarber.com
+ADMIN_EMAIL=admin@rivuzbarber.com
 ADMIN_PASSWORD=<fuerte, minimo 12 chars>
-ADMIN_NOMBRE=Naza Barber
+ADMIN_NOMBRE=Rivuz Barber
 ADMIN_TELEFONO=3430000000
-ADMIN_INSTAGRAM=@nazabarber
+ADMIN_INSTAGRAM=@rivuzbarber
 ADMIN_WHATSAPP=3430000000
 ```
 

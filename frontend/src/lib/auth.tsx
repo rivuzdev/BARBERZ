@@ -14,7 +14,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [token, setToken] = useState<string | null>(localStorage.getItem("nazabarber_token"));
+  const [token, setToken] = useState<string | null>(localStorage.getItem("rivuzbarber_token"));
   const queryClient = useQueryClient();
 
   const { data: user, isLoading, isError } = useGetMe({
@@ -32,13 +32,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [isError]);
 
   const login = (newToken: string, newUser: Usuario) => {
-    localStorage.setItem("nazabarber_token", newToken);
+    localStorage.setItem("rivuzbarber_token", newToken);
     setToken(newToken);
     queryClient.setQueryData(getGetMeQueryKey(), newUser);
   };
 
   const logout = () => {
-    localStorage.removeItem("nazabarber_token");
+    localStorage.removeItem("rivuzbarber_token");
     setToken(null);
     queryClient.removeQueries({ queryKey: getGetMeQueryKey() });
   };

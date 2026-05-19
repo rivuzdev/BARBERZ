@@ -30,7 +30,7 @@ function mockReq({ body = {}, params = {}, query = {}, usuario = null, admin = n
 }
 
 async function ensureClientUser() {
-    const email = 'cliente.test@nazabarber.test';
+    const email = 'cliente.test@rivuzbarber.test';
     let user = await prisma.usuario.findUnique({ where: { email } });
     if (!user) {
         const hash = await bcrypt.hash('cliente123', 10);
@@ -52,14 +52,14 @@ async function run() {
         console.log('🔸 Login failed attempted - controller handled');
 
         // 2) Forgot password (existing admin from seed)
-        const req2 = mockReq({ body: { email: 'admin@nazabarber.com' }, headers: { 'user-agent': 'test/2' } });
+        const req2 = mockReq({ body: { email: 'admin@rivuzbarber.com' }, headers: { 'user-agent': 'test/2' } });
         const res2 = mockRes();
         await authController.forgotPassword(req2, res2);
         console.log('🔸 Forgot password requested (admin)');
 
         // 3) Reset password success: create token via repository and call controller
         const tokenRepo = require('../src/repositories/passwordResetToken.repository');
-        const adminUser = await prisma.usuario.findUnique({ where: { email: 'admin@nazabarber.com' } });
+        const adminUser = await prisma.usuario.findUnique({ where: { email: 'admin@rivuzbarber.com' } });
         const { token } = await tokenRepo.crearTokenReset(adminUser.id, 60);
         const req3 = mockReq({ params: { token }, body: { newPassword: 'newAdminPass123' }, headers: { 'user-agent': 'test/3' } });
         const res3 = mockRes();

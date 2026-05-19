@@ -7,7 +7,7 @@
 
 ## Resumen de Cambios
 
-Se aplicó la **PARTE 1 de seguridad** al backend de NazaBarber. Todos los cambios fueron diseñados para **no romper** la integración con el frontend.
+Se aplicó la **PARTE 1 de seguridad** al backend de RivuzBarber. Todos los cambios fueron diseñados para **no romper** la integración con el frontend.
 
 ---
 
@@ -221,7 +221,7 @@ CLOUDINARY_ENABLED=false
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
-CLOUDINARY_FOLDER=nazabarber
+  CLOUDINARY_FOLDER=rivuzbarber
 ```
 
 ### Impacto en Frontend
@@ -265,7 +265,7 @@ CLOUDINARY_FOLDER=nazabarber
 ✅ Variables de entorno validadas correctamente
 ✅ Ambiente: DEVELOPMENT
 ℹ️ Cloudinary deshabilitado
-🧔 NazaBarber API v1.0
+🧔 RivuzBarber API v1.0
 Corriendo en puerto 3000
 ```
 
@@ -301,7 +301,7 @@ GET /api/healthz
 Response: {"status":"ok","timestamp":"..."}
 
 # Login correcto
-POST /api/auth/login (admin@nazabarber.com / admin123)
+POST /api/auth/login (admin@rivuzbarber.com / admin123)
 Response: {token: "...", usuario: {...}} 
 Nota: usuario NO incluye passwordHash ✅
 

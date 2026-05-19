@@ -6,7 +6,7 @@ const { ENV } = require('./env');
 
 const resendConfig = {
     apiKey: process.env.RESEND_API_KEY,
-    mailFrom: process.env.MAIL_FROM || 'NazaBarber <onboarding@resend.dev>',
+    mailFrom: process.env.MAIL_FROM || 'RivuzBarber <onboarding@resend.dev>',
     enabled: !!process.env.RESEND_API_KEY,
 };
 

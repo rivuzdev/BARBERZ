@@ -11,10 +11,10 @@ export function Glass({ children, className, variant = "default", ...rest }: Gla
     <div
       {...rest}
       className={cn(
-        "relative rounded-2xl border backdrop-blur-xl",
+        "relative rounded-[18px] border backdrop-blur-xl",
         variant === "default"
-          ? "bg-card/60 border-white/10 shadow-lg shadow-black/30"
-          : "bg-card/80 border-white/15 shadow-xl shadow-black/40",
+          ? "bg-white/80 border-border shadow-sm shadow-slate-900/5"
+          : "bg-white border-border shadow-lg shadow-slate-900/8",
         className,
       )}
     >

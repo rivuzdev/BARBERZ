@@ -33,7 +33,7 @@ export default function Feed() {
         <div className="text-xs uppercase tracking-[0.25em] text-primary mb-2">
           Feed
         </div>
-        <h1 className="font-serif text-3xl sm:text-4xl mb-3">Lo último de la barbería</h1>
+        <h1 className="headline text-3xl sm:text-4xl text-secondary mb-3">Lo último de BARBERZ</h1>
         <GoldDivider className="mx-auto" />
       </div>
 

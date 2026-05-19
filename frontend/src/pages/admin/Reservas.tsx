@@ -254,7 +254,7 @@ export default function AdminReservas() {
                             size="sm"
                             variant="outline"
                             onClick={() => {
-                              const msg = `Hola ${clienteNombre ?? ''}, te confirmamos tu turno en Naza para el ${fechaLarga(t.fecha)} a las ${t.hora}. Te esperamos.`;
+                              const msg = `Hola ${clienteNombre ?? ''}, te confirmamos tu turno en BARBERZ para el ${fechaLarga(t.fecha)} a las ${t.hora}. Te esperamos.`;
                               const url = buildWhatsAppUrl(clienteWhatsapp, msg);
                               if (url) window.open(url, '_blank', 'noopener');
                             }}

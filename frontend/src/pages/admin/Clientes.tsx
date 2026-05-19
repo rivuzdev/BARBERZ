@@ -19,9 +19,9 @@ export default function AdminClientes() {
         <div className="text-xs uppercase tracking-[0.25em] text-primary mb-1">
           Comunidad
         </div>
-        <h1 className="font-serif text-3xl">Clientes</h1>
+        <h1 className="headline text-3xl text-secondary">Clientes</h1>
         <p className="text-sm text-muted-foreground">
-          Tu base de clientes con cuenta en NazaBarber.
+          Tu base de clientes con cuenta en BARBERZ.
         </p>
       </div>
 

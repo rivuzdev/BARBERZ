@@ -1,4 +1,4 @@
-# 🔐 NazaBarber Backend - Guía de Seguridad
+# 🔐 RivuzBarber Backend - Guía de Seguridad
 
 **Última actualización**: 1 de mayo de 2026  
 **Versión Backend**: 1.0.0 (PARTE 1 de Seguridad implementada)
@@ -35,7 +35,7 @@
 cp .env.example .env
 
 # Verificar que .env tenga valores válidos (para local, ya están listos)
-# DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/nazabarber
+# DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/rivuzbarber
 # JWT_SECRET=dev_secret_key_only_for_local_development...
 # JWT_EXPIRES_IN=15m
 ```
@@ -75,7 +75,7 @@ npm run dev
 ✅ Ambiente: DEVELOPMENT
 ℹ️ Cloudinary deshabilitado (CLOUDINARY_ENABLED=false)
 
-🧔 NazaBarber API v1.0
+🧔 RivuzBarber API v1.0
 Corriendo en puerto 3000
 Ambiente: DEVELOPMENT
 
@@ -93,7 +93,7 @@ Si ves algún ❌ en lugar de ✅, revisa el mensaje de error.
 Después del seed, puedes usar:
 
 **Admin:**
-- Email: `admin@nazabarber.com`
+- Email: `admin@rivuzbarber.com`
 - Password: `admin123`
 
 ---
@@ -160,7 +160,7 @@ curl http://localhost:3000/api/healthz
 ```bash
 curl -X POST http://localhost:3000/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@nazabarber.com","password":"admin123"}'
+   -d '{"email":"admin@rivuzbarber.com","password":"admin123"}'
 
 # Response: {
 #   "token": "eyJ...",
@@ -234,7 +234,7 @@ Resumen rápido:
 
 ```bash
 # Verifica que PostgreSQL está corriendo
-psql -U postgres -d nazabarber -c "SELECT 1"
+psql -U postgres -d rivuzbarber -c "SELECT 1"
 ```
 
 ### Error: "Puerto 3000 ya en uso"
@@ -291,7 +291,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
 ## ✅ Resumen
 
-**NazaBarber Backend está ahora:**
+**RivuzBarber Backend está ahora:**
 - ✅ Seguro (headers, rate limit, sanitización)
 - ✅ Validado (variables de entorno requeridas)
 - ✅ Listo para producción (documentación completa)

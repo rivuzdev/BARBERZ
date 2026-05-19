@@ -1,4 +1,4 @@
-# QA Checklist - NazaBarber (PASO 7)
+# QA Checklist - RivuzBarber (PASO 7)
 
 Estado sugerido por fila: `pendiente` / `ok` / `falla`.
 
@@ -6,7 +6,7 @@ Estado sugerido por fila: `pendiente` / `ok` / `falla`.
 
 - Backend: `http://localhost:3000`
 - Frontend: `http://localhost:5173`
-- Admin test: `admin@nazabarber.com / admin123` (ajustar si fue cambiado)
+- Admin test: `admin@rivuzbarber.com / admin123` (ajustar si fue cambiado)
 - Cliente test: crear uno nuevo desde registro
 - Auditoría:
   - `AUDIT_ENABLED=true` para validar eventos

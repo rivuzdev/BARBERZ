@@ -77,14 +77,17 @@ function AppRouter() {
 }
 
 function App() {
+  const rawBase = import.meta.env.BASE_URL ?? "/";
+  const base = rawBase.replace(/\/$/, "");
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <TooltipProvider>
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <WouterRouter base={base}>
             <AppRouter />
           </WouterRouter>
-          <Sonner position="top-right" richColors theme="dark" />
+          <Sonner position="top-right" richColors theme="light" />
         </TooltipProvider>
       </AuthProvider>
     </QueryClientProvider>
